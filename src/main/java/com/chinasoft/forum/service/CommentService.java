@@ -9,4 +9,6 @@ public interface CommentService {
     List<Comment> findAllParentComment(Integer postId);
 
     List<Comment> findAllChildComment(Integer parentCommentId,Integer postId);
+
+    void insert(Comment comment);
 }

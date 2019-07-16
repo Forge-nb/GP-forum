@@ -33,6 +33,10 @@ public class Post {
 
     private String summary;
 
+    private Integer starNumber;
+
+    private Integer browseNumber;
+
     private boolean commentable;
 
     @Column(length = 10000)
@@ -124,6 +128,22 @@ public class Post {
         this.postStatus = postStatus;
     }
 
+    public Integer getStarNumber() {
+        return starNumber;
+    }
+
+    public void setStarNumber(Integer starNumber) {
+        this.starNumber = starNumber;
+    }
+
+    public Integer getBrowseNumber() {
+        return browseNumber;
+    }
+
+    public void setBrowseNumber(Integer browseNumber) {
+        this.browseNumber = browseNumber;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
@@ -135,6 +155,8 @@ public class Post {
                 ", postStatus='" + postStatus + '\'' +
                 ", title='" + title + '\'' +
                 ", summary='" + summary + '\'' +
+                ", starNumber=" + starNumber +
+                ", browseNumber=" + browseNumber +
                 ", commentable=" + commentable +
                 ", firstImg='" + firstImg + '\'' +
                 '}';

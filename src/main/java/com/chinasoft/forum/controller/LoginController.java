@@ -140,7 +140,7 @@ public class LoginController {
             try {
                 email.addTo(userEmail);
                 email.setFrom("1194688236@qq.com", "聚集地论坛");
-                email.setAuthentication("1194688236@qq.com", "nlqqmczegpalbagd");
+                email.setAuthentication("1194688236@qq.com", "rkjhrvjftpizigbg");
                 email.setSubject("邮箱验证");//设置发送主题
                 String code = RandomCode();
                 email.setMsg("您正在注册聚集地论坛，您的验证码为： " + code + ",有效时间三分钟。 如非本人操作，请忽略本邮件。");//设置发送内容

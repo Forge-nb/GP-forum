@@ -5,6 +5,7 @@
     <title>撰写贴文</title>
     <link media="all" rel="stylesheet" type="text/css" href="/simditor/css/app.css"/>
     <link media="all" rel="stylesheet" type="text/css" href="/simditor/css/simditor.css"/>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     {{>layout/head}}
 
     <script type="text/javascript" src="/simditor/js/mobilecheck.js"></script>
@@ -19,8 +20,7 @@
         <h3>发表帖子</h3>
     </div>
 
-
-    <form action="writeAction" method="post" id="writeForm">
+    <form  id="writeForm">
 
         <input name="inputTitle"
                type="text"
@@ -78,9 +78,9 @@
             <div class="col-sm-5"></div>
 
             <div class="col-sm-2">
-                <button class="btn btn-lg btn-primary btn-block" type="button" style="width:200px;margin-right: 50px" onclick="writePost()">
+                <a class="btn btn-lg btn-primary btn-block" type="button" style="width:200px;margin-right: 50px" onclick="write_content()">
                     发表
-                </button>
+                </a>
             </div>
 
             <div class="col-sm-1"></div>
@@ -134,11 +134,26 @@
         });
     });
 
-    function writePost() {
-        alert("ss");
-        // window.location.href="index";
+    function write_content() {
+        var section_name="11";
+        var title=$("#inputTitle").val();
+        var content=$("#txt-content").val();
+        var commentable=$("#customCheck1").is(":checked");
+        $.ajax({
+            type: "POST",
+            url: "writeAction",
+            data: {
+                "section_name": section_name,
+                "title": title,
+                "content": content,
+                "commentable": commentable
+            },
+            dataType: "json",
+            success:function (data) {
+                alert(data);
+            }
+        });
     }
-
 </script>
 
 
