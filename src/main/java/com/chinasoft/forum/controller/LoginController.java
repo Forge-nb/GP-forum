@@ -56,6 +56,9 @@ public class LoginController {
                 } else {  //两台机器登录同一账号，后一个把前一个挤掉
                     session.invalidate();
                     OnlineUserList.remove(email);
+                    if(user.getThisLogTime()!=null){
+                        user.setLastLogTime(user.getThisLogTime());
+                    }
                     user.setThisLogTime(new Date());
                     newSession.setAttribute("User", user);
                     OnlineUserList.put(email, newSession);
@@ -63,6 +66,9 @@ public class LoginController {
                     return "登录成功";
                 }
             } else {  //该账号未登陆，正常进行登录
+                if(user.getThisLogTime()!=null){
+                    user.setLastLogTime(user.getThisLogTime());
+                }
                 user.setThisLogTime(new Date());
                 newSession.setAttribute("User", user);
                 OnlineUserList.put(email, newSession);
@@ -163,11 +169,21 @@ public class LoginController {
     public void addCookie(HttpServletResponse response, User user){
         String email= user.getUserEmail();
         Cookie cookie = new Cookie(LoginController.COOKIE_NAME,email);
-        redisService.set(email+LoginController.COOKIE_NAME,user.getUserPassword());
+//        redisService.set(email+LoginController.COOKIE_NAME,user.getUserPassword());
         cookie.setMaxAge(604800);//保存一周
-        redisService.expire(email+LoginController.COOKIE_NAME,604800);
+//        redisService.expire(email+LoginController.COOKIE_NAME,604800);
         cookie.setPath("/");
         response.addCookie(cookie);
     }
 
+
+    @RequestMapping(value = "signout",method = RequestMethod.POST)
+    public String signOut(HttpServletRequest request,HttpServletResponse response){
+        Cookie cookie = new Cookie(LoginController.COOKIE_NAME, "");
+        cookie.setMaxAge(0);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+        request.getSession().removeAttribute("User");
+        return "index";
+    }
 }

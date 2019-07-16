@@ -38,9 +38,9 @@ public class IndexController {
                 if (LoginController.COOKIE_NAME.equals(cookie.getName())) {
                     String email=cookie.getValue();
                     User user=userService.userCoookie(email);
-                    String password=redisUtils.get(email+LoginController.COOKIE_NAME);
-                    try {
-                        if (user.getUserPassword().equals(password)) {
+//                    String password=redisUtils.get(email+LoginController.COOKIE_NAME);
+                    if(user!=null){
+//                        if (user.getUserPassword().equals(password)) {
                             if (OnlineUserList.containsKey(email)) {
                                 HttpSession session = OnlineUserList.get(email);
                                 session.invalidate();
@@ -54,11 +54,10 @@ public class IndexController {
                                 OnlineUserList.put(email, request.getSession());
                                 return "index";
                             }
-                        } else {
-                            return "login";
-                        }
-                    }catch (NullPointerException e){
-                        e.printStackTrace();
+//                        } else {
+//                            return "login";
+//                        }
+                    }else {
                         return "login";
                     }
                 }

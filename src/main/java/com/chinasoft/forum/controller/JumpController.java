@@ -15,4 +15,15 @@ public class JumpController {
     public String toUpdateProfile(){
         return "updateProfile";
     }
+
+    @RequestMapping("write")
+    public String toWrite(){
+        return "write";
+    }
+
+    @RequestMapping("section")
+    public String toSection(){
+        return "section";
+    }
+
 }

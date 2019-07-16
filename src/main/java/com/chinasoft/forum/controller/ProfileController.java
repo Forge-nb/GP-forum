@@ -34,7 +34,7 @@ public class ProfileController {
         if (user.getUserPassword().equals(password)) {
             if (newPassword.equals(confirmPassword)) {
                 Cookie cookie = new Cookie(LoginController.COOKIE_NAME, "");
-                redisService.remove(email + LoginController.COOKIE_NAME);
+//                redisService.remove(email + LoginController.COOKIE_NAME);
                 OnlineUserList.remove(email);
                 cookie.setMaxAge(0);
                 cookie.setPath("/");

@@ -128,12 +128,13 @@
                 <div>
                     <!--此处是文章标题-->
                     <h3>三个代表</h3>
+                    <input value="1" hidden id="postId">
                 </div>
                 <p>
                     <!--此处是作者信息-->
                     <small>作者：<a href="#">江泽民</a></small>
                     <small style="margin: 10px">最后修改时间：2000年2月25日</small>
-
+                    <input value="1194688236@qq.com" hidden id="userEmail">
                     <!--此处是浏览信息-->
                     <label style="float: right;margin-top: 7px">浏览数：10Y</label>
                 </p>
@@ -187,7 +188,7 @@
 
                         </div>
                         <div style="margin-top: 5px">
-                            <p>
+                            <p id="1">
                                 按照香港的基本法和选举法去连任按照香港的基本法和选举法去连任按照香港的基本法和选举法去连任按照香港的基本法和选举法去连任按照香港的基本法和选举法去连任按照香港的基本法和选举法去连任按照香港的基本法和选举法去连任按照香港的基本法和选举法去连任按照香港的基本法和选举法去连任
                             </p>
                             <div class="collapse" id="replyCollapse1" data-parent="#accordion">
@@ -206,6 +207,73 @@
                 </div>
 
                 <!--评论详情-->
+                <!--{{#parentComments}}-->
+                <!--<div class="row" style="margin-bottom: 20px">-->
+                    <!--&lt;!&ndash;评论人头像&ndash;&gt;-->
+                    <!--<div class="col-1">-->
+                        <!--<img class="nav-item rounded-circle"-->
+                             <!--src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563112838538&di=698d772f752992a2f4ff0a73988e0f26&imgtype=0&src=http%3A%2F%2Fwww.xinhuanet.com%2Fpolitics%2F2018-03%2F14%2F1122538039_15210257516771n.jpg"-->
+                             <!--style="width:60px ;height:60px;margin-left: 20px">-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;评论人及内容&ndash;&gt;-->
+                    <!--<div style="margin-left: 20px;" class="col-10">-->
+                        <!--<div>-->
+                            <!--<small>{{parentComments.userNickName}}</small>-->
+                            <!--<small style="margin-left: 7px;margin-right: 7px;">|</small>-->
+                            <!--<small>{{parentComments.commentTime}}</small>-->
+                            <!--<a data-toggle="collapse"-->
+                               <!--href="#replyCollapse2"-->
+                               <!--style="float: right;"-->
+                               <!--aria-expanded="false"-->
+                               <!--aria-controls="replyCollapse">-->
+                                <!--<small>回复</small>-->
+                            <!--</a>-->
+                        <!--</div>-->
+
+                        <!--<div style="margin-top: 5px">-->
+                            <!--<p id="{{parentComments.commentId}}">-->
+                                <!--{{parentComments.content}}-->
+                            <!--</p>-->
+                            <!--<div class="collapse" id=" " data-parent="#accordion">-->
+                                <!--<div class="card card-body">-->
+
+                                    <!--<label>输入回复：</label>-->
+                                    <!--<textarea placeholder="输入回复内容replyCollapse2"></textarea>-->
+                                    <!--<button type="button" style="float: right;width: 120px"-->
+                                            <!--class="btn btn-outline-secondary">发表回复-->
+                                    <!--</button>-->
+
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<a data-toggle="collapse"-->
+                               <!--href="#replyReplyCollapse"-->
+                               <!--style="float: right;"-->
+                               <!--aria-expanded="false"-->
+                               <!--aria-controls="replyCollapse">-->
+                                <!--<small>回复</small>-->
+                            <!--</a>-->
+
+                            <!--<div class="container">-->
+                                <!--<p id="{{}}"><a href="#" id="">江泽民&nbsp;</a>&nbsp;回复&nbsp;<a href="#" id="">&nbsp;董建华</a>：连任也要按照基本法和选举法去产生-->
+                                <!--</p>-->
+                            <!--</div>-->
+
+                            <!--<div class="collapse" id="replyReplyCollapse" data-parent="#accordion">-->
+                                <!--<div class="card card-body">-->
+
+                                    <!--<label>输入回复：</label>-->
+                                    <!--<textarea placeholder="输入回复内容replyReplyCollapse"></textarea>-->
+                                    <!--<button type="button" style="float: right;width: 120px"-->
+                                            <!--class="btn btn-outline-secondary" onclick="writeComment()">发表回复-->
+                                    <!--</button>-->
+
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--{{/parentComments}}-->
+                <!--{{^parentComments}}-->
                 <div class="row" style="margin-bottom: 20px">
                     <!--评论人头像-->
                     <div class="col-1">
@@ -229,7 +297,7 @@
                         </div>
 
                         <div style="margin-top: 5px">
-                            <p>
+                            <p id="">
                                 江主席我想连任
                             </p>
                             <div class="collapse" id="replyCollapse2" data-parent="#accordion">
@@ -252,7 +320,7 @@
                             </a>
 
                             <div class="container">
-                                <p><a href="#">江泽民&nbsp;</a>&nbsp;回复&nbsp;<a href="#">&nbsp;董建华</a>：连任也要按照基本法和选举法去产生
+                                <p id="3"><a href="#" id="123@qq.com">江泽民&nbsp;</a>&nbsp;回复&nbsp;<a href="#" id="321@qq.com">&nbsp;董建华</a>：连任也要按照基本法和选举法去产生
                                 </p>
                             </div>
 
@@ -262,7 +330,7 @@
                                     <label>输入回复：</label>
                                     <textarea placeholder="输入回复内容replyReplyCollapse"></textarea>
                                     <button type="button" style="float: right;width: 120px"
-                                            class="btn btn-outline-secondary">发表回复
+                                            class="btn btn-outline-secondary" onclick="writeComment()">发表回复
                                     </button>
 
                                 </div>
@@ -270,7 +338,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!--{{/parentComments}}-->
             </div>
             <div style="margin-top: 50px;">
                 <hr>
@@ -317,5 +385,9 @@
         });
 
     });
+
+    // function writeComment() {
+    //     var content=$("#replyCollapse1").val();
+    // }
 </script>
 </html>

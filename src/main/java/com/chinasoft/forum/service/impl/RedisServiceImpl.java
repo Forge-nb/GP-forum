@@ -17,7 +17,6 @@ public class RedisServiceImpl implements RedisService {
     @Autowired
     private RedisTemplate<String, ?> redisTemplate;
 
-
     @Override
     public boolean set(final String key, final String value) {
 //     execute，   实现对于redis数据的操作

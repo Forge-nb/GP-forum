@@ -18,11 +18,19 @@ public class Comment {
 
     private String userEmail;
 
+    private String userNickName;
+
+    private String respondentUserNickName;
+
+    private String respondentUserEmail;
+
     private Integer postId;
 
     private String content;
-
+    
     private Integer targetCommentId;
+
+    private Integer parentCommentId;
 
     @CreatedDate
     private Date commentTime;
@@ -75,14 +83,50 @@ public class Comment {
         this.commentTime = commentTime;
     }
 
+    public Integer getParentCommentId() {
+        return parentCommentId;
+    }
+
+    public void setParentCommentId(Integer parentCommentId) {
+        this.parentCommentId = parentCommentId;
+    }
+
+    public String getUserNickName() {
+        return userNickName;
+    }
+
+    public void setUserNickName(String userNickName) {
+        this.userNickName = userNickName;
+    }
+
+    public String getRespondentUserNickName() {
+        return respondentUserNickName;
+    }
+
+    public void setRespondentUserNickName(String respondentUserNickName) {
+        this.respondentUserNickName = respondentUserNickName;
+    }
+
+    public String getRespondentUserEmail() {
+        return respondentUserEmail;
+    }
+
+    public void setRespondentUserEmail(String respondentUserEmail) {
+        this.respondentUserEmail = respondentUserEmail;
+    }
+
     @Override
     public String toString() {
         return "Comment{" +
                 "commentId=" + commentId +
                 ", userEmail='" + userEmail + '\'' +
+                ", userNickName='" + userNickName + '\'' +
+                ", respondentUserNickName='" + respondentUserNickName + '\'' +
+                ", respondentUserEmail='" + respondentUserEmail + '\'' +
                 ", postId=" + postId +
                 ", content='" + content + '\'' +
                 ", targetCommentId=" + targetCommentId +
+                ", parentCommentId=" + parentCommentId +
                 ", commentTime=" + commentTime +
                 '}';
     }

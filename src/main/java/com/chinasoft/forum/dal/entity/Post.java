@@ -59,14 +59,10 @@ public class Post {
     }
 
     public void setFirstImg(String content) {
-
-        //String s = "<img alt=\"Image\" src=\"";
         Document document= Jsoup.parse(content);
         Element element=document.select("img[src]").first();
         if(element!=null){
             this.firstImg=element.attr("src");
-            //int ix = content.indexOf(s)+s.length();
-            //this.firstImg = content.substring(ix, content.indexOf("\"", ix + 1));
         }else{
             this.firstImg="";
         }
